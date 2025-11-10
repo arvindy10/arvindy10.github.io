@@ -1,49 +1,1343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Arvindy10 Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { font-family: sans-serif; margin: 2em; background: #f6f8fa; color: #24292f; }
-    .container { max-width: 800px; margin: auto; background: #fff; padding: 2em; border-radius: 8px; box-shadow: 0 2px 8px #e1e4e8; }
-    h1 { color: #0969da; }
-    a { color: #0969da; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .header { margin-bottom: 2em; }
-    .section { margin-bottom: 2em; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arvind Kumar Yadav | Senior Android Developer Portfolio</title>
+    <style>
+/* CSS Variables for theming */
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --secondary: #8b5cf6;
+    --accent: #06b6d4;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-alt: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --card-bg: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+    --primary: #818cf8;
+    --primary-dark: #6366f1;
+    --secondary: #a78bfa;
+    --accent: #22d3ee;
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-alt: #334155;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --card-bg: #1e293b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.theme-toggle {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.theme-toggle:hover {
+    background: var(--bg-alt);
+}
+
+.moon-icon {
+    display: none;
+}
+
+[data-theme="dark"] .sun-icon {
+    display: none;
+}
+
+[data-theme="dark"] .moon-icon {
+    display: inline;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--text-primary);
+    transition: var(--transition);
+}
+
+/* Hero Section */
+.hero {
+    padding: 150px 0 100px;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-alt) 100%);
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 35px;
+    line-height: 1.8;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.btn-secondary {
+    background: var(--bg-primary);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* Sections */
+.section {
+    padding: 80px 0;
+}
+
+.section-alt {
+    background: var(--bg-secondary);
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 2px;
+}
+
+/* About Section */
+.about-content p {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+/* Tabs */
+.tabs {
+    margin-top: 40px;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--border);
+    overflow-x: auto;
+}
+
+.tab-btn {
+    padding: 15px 25px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+    position: relative;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.tab-btn.active {
+    color: var(--primary);
+}
+
+.tab-btn.active::after {
+    width: 100%;
+}
+
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Architecture Grid */
+.architecture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.arch-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.arch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow);
+    border-color: var(--primary);
+}
+
+.arch-card h3 {
+    color: var(--primary);
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.arch-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Tech Grid */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.tech-category h3 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-tag {
+    background: var(--bg-alt);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.tech-tag:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.skill-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.skill-card h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.skill-card ul {
+    list-style: none;
+}
+
+.skill-card li {
+    color: var(--text-secondary);
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+}
+
+.skill-card li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* Project Filters */
+.project-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 24px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover {
+    background: var(--bg-alt);
+}
+
+.filter-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card.hidden {
+    display: none;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px var(--shadow);
+    border-color: var(--primary);
+}
+
+.project-header {
+    margin-bottom: 15px;
+}
+
+.project-header h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.project-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: var(--primary);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.project-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.project-highlights {
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.project-highlights h4 {
+    color: var(--text-primary);
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.project-highlights ul {
+    list-style: none;
+}
+
+.project-highlights li {
+    color: var(--text-secondary);
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+    font-size: 14px;
+}
+
+.project-highlights li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.project-footer {
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.project-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.project-link:hover {
+    color: var(--secondary);
+}
+
+/* Contact Section */
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-intro {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.contact-links {
+    display: grid;
+    gap: 20px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 18px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.contact-link:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateX(5px);
+}
+
+.contact-link .icon {
+    font-size: 24px;
+}
+
+/* Footer */
+.footer {
+    background: var(--bg-secondary);
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.footer p {
+    color: var(--text-muted);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 10px 30px var(--shadow);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: var(--transition);
+        pointer-events: none;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .hero {
+        padding: 120px 0 60px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .tab-buttons {
+        flex-wrap: nowrap;
+    }
+
+    .architecture-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+    }
+
+    .btn {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .project-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>Hi, I'm arvindy10 👋</h1>
-      <p>Welcome to my portfolio! Here you’ll find my projects, skills, and ways to reach me.</p>
-    </div>
-    <div class="section">
-      <h2>About Me</h2>
-      <p>Write a short paragraph about yourself — your interests, work, and what makes you unique!</p>
-    </div>
-    <div class="section">
-      <h2>Projects</h2>
-      <ul>
-        <li>
-          <strong>Project 1:</strong> <a href="https://github.com/arvindy10/project-1">Project Name</a> — Brief description...
-        </li>
-        <li>
-          <strong>Project 2:</strong> <a href="https://github.com/arvindy10/project-2">Project Name</a> — Brief description...
-        </li>
-        <!-- Add more projects as you need -->
-      </ul>
-    </div>
-    <div class="section">
-      <h2>Contact</h2>
-      <ul>
-        <li>Email: your.email@example.com</li>
-        <li><a href="https://github.com/arvindy10">GitHub Profile</a></li>
-        <!-- Add other links: LinkedIn, Twitter, etc. -->
-      </ul>
-    </div>
-  </div>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">AKY</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <span class="sun-icon">☀</span>
+                    <span class="moon-icon">☾</span>
+                </button>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Arvind Kumar Yadav</h1>
+                <p class="hero-subtitle">Senior Android Developer | Kotlin • Jetpack • MVVM</p>
+                <p class="hero-description">Senior Android Developer with 10+ years of experience designing, developing, and maintaining high-quality Android applications. Expert in Kotlin, Android architecture components, and performance optimization. Proven track record of delivering user-centric solutions for global clients and mentoring development teams.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>I'm a Senior Android Developer with over 10 years of hands-on experience crafting exceptional mobile applications. Currently working at NTT Data, I specialize in building scalable, high-performance Android solutions using Kotlin, MVVM architecture, and modern Jetpack components.</p>
+                <p>Throughout my career, I've successfully migrated legacy Java codebases to Kotlin, reduced app crash rates by up to 8%, and led cross-functional teams to deliver high-impact features. I'm passionate about code quality, mentoring developers, and staying at the forefront of Android development best practices. My expertise spans the complete app lifecycle—from architecture design to Play Store deployment and beyond.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="architecture">Architecture & Design</button>
+                    <button class="tab-btn" data-tab="tech-stack">Tech Stack</button>
+                    <button class="tab-btn" data-tab="skills">Core Skills</button>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-panel active" id="architecture">
+                        <div class="architecture-grid">
+                            <div class="arch-card">
+                                <h3>Clean Architecture</h3>
+                                <p>Multi-layer architecture with clear separation of concerns, enabling testability and maintainability at scale.</p>
+                            </div>
+                            <div class="arch-card">
+                                <h3>MVVM & MVI</h3>
+                                <p>Expert in implementing unidirectional data flow patterns with ViewModel, StateFlow, and reactive streams.</p>
+                            </div>
+                            <div class="arch-card">
+                                <h3>SOLID Principles</h3>
+                                <p>Applying fundamental design principles to create flexible, extensible codebases that stand the test of time.</p>
+                            </div>
+                            <div class="arch-card">
+                                <h3>Modular Architecture</h3>
+                                <p>Building scalable apps with feature modules, dynamic delivery, and optimized build times.</p>
+                            </div>
+                            <div class="arch-card">
+                                <h3>Dependency Injection</h3>
+                                <p>Proficient with Hilt/Dagger for managing dependencies and enabling testable architecture.</p>
+                            </div>
+                            <div class="arch-card">
+                                <h3>Repository Pattern</h3>
+                                <p>Abstracting data sources with clean interfaces for flexible, testable data layer implementation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="tech-stack">
+                        <div class="tech-grid">
+                            <div class="tech-category">
+                                <h3>Core Technologies</h3>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Kotlin</span>
+                                    <span class="tech-tag">Java</span>
+                                    <span class="tech-tag">Jetpack Compose</span>
+                                    <span class="tech-tag">Coroutines</span>
+                                    <span class="tech-tag">Flow</span>
+                                    <span class="tech-tag">Room</span>
+                                    <span class="tech-tag">Retrofit</span>
+                                    <span class="tech-tag">LiveData</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <h3>Architecture & Patterns</h3>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">MVVM</span>
+                                    <span class="tech-tag">ViewModel</span>
+                                    <span class="tech-tag">Navigation</span>
+                                    <span class="tech-tag">Clean Architecture</span>
+                                    <span class="tech-tag">Modularization</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <h3>Dependency Injection</h3>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Dagger</span>
+                                    <span class="tech-tag">Hilt</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <h3>Testing & Quality</h3>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">JUnit</span>
+                                    <span class="tech-tag">Mockito</span>
+                                    <span class="tech-tag">Espresso</span>
+                                    <span class="tech-tag">Code Review</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <h3>Firebase & Analytics</h3>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Firebase</span>
+                                    <span class="tech-tag">Crashlytics</span>
+                                    <span class="tech-tag">Adobe Analytics</span>
+                                    <span class="tech-tag">Facebook Analytics</span>
+                                    <span class="tech-tag">Launch Darkly</span>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <h3>Tools & Platform</h3>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Git</span>
+                                    <span class="tech-tag">Jira</span>
+                                    <span class="tech-tag">CI/CD</span>
+                                    <span class="tech-tag">REST APIs</span>
+                                    <span class="tech-tag">Play Store</span>
+                                    <span class="tech-tag">Agile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="skills">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <h3>Android Development</h3>
+                                <ul>
+                                    <li>Native Android with Kotlin & Java</li>
+                                    <li>Modern UI with Jetpack Compose</li>
+                                    <li>Material Design implementation</li>
+                                    <li>Offline-first architecture</li>
+                                    <li>Performance optimization</li>
+                                    <li>Legacy code migration (Java to Kotlin)</li>
+                                </ul>
+                            </div>
+                            <div class="skill-card">
+                                <h3>Backend & Integration</h3>
+                                <ul>
+                                    <li>RESTful API integration with Retrofit</li>
+                                    <li>Firebase services & Crashlytics</li>
+                                    <li>Payment gateway integration (PayU, RazorPay)</li>
+                                    <li>Third-party SDK integration</li>
+                                    <li>Cross-platform API coordination</li>
+                                </ul>
+                            </div>
+                            <div class="skill-card">
+                                <h3>Team Leadership</h3>
+                                <ul>
+                                    <li>Code reviews & technical mentorship</li>
+                                    <li>Best practices establishment</li>
+                                    <li>Agile/Scrum ceremonies</li>
+                                    <li>Cross-functional collaboration</li>
+                                    <li>Training sessions delivery</li>
+                                    <li>Recognized Top Performer (2022)</li>
+                                </ul>
+                            </div>
+                            <div class="skill-card">
+                                <h3>Quality & Delivery</h3>
+                                <ul>
+                                    <li>Unit & integration testing (JUnit, Mockito)</li>
+                                    <li>Crash rate reduction expertise</li>
+                                    <li>Play Store deployment & compliance</li>
+                                    <li>App lifecycle management</li>
+                                    <li>CI/CD pipeline implementation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="android">Native Android</button>
+                <button class="filter-btn" data-filter="architecture">Architecture</button>
+                <button class="filter-btn" data-filter="compose">Jetpack Compose</button>
+            </div>
+
+            <div class="projects-grid">
+                <article class="project-card" data-category="android architecture compose">
+                    <div class="project-header">
+                        <h3>Tata Neu</h3>
+                        <div class="project-tags">
+                            <span class="tag">Kotlin</span>
+                            <span class="tag">Jetpack</span>
+                            <span class="tag">Hilt</span>
+                            <span class="tag">Modularization</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Super-app platform integrating multiple Tata services. Led Android development at NTT Data, focusing on performance optimization and code quality improvements.
+                    </p>
+                    <div class="project-highlights">
+                        <h4>Technical Achievements:</h4>
+                        <ul>
+                            <li>Improved app performance by 5% through optimized architecture and modularization</li>
+                            <li>Migrated legacy Java codebase to Kotlin, enhancing maintainability by 15%</li>
+                            <li>Implemented Kotlin idioms and null safety, reducing crashes</li>
+                            <li>Integrated Adobe Analytics and Launch Darkly for feature flagging</li>
+                            <li>Conducted code reviews and mentored team on Kotlin best practices</li>
+                        </ul>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://play.google.com/store/apps/details?id=com.tata.neu" class="project-link" target="_blank">View on Play Store →</a>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="android architecture">
+                    <div class="project-header">
+                        <h3>United For Air</h3>
+                        <div class="project-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">MVVM</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Offline</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Real-time air quality tracking application providing users with current pollution levels and health recommendations with robust offline support.
+                    </p>
+                    <div class="project-highlights">
+                        <h4>Technical Achievements:</h4>
+                        <ul>
+                            <li>Implemented offline-first architecture with local data caching</li>
+                            <li>Reduced API dependency by 5% through improved caching strategies</li>
+                            <li>Integrated Firebase for real-time data synchronization</li>
+                            <li>Built using MVVM pattern with Jetpack components</li>
+                            <li>Monitored stability using Firebase Crashlytics</li>
+                        </ul>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://github.com/arvindy10" class="project-link" target="_blank">View on GitHub →</a>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="android">
+                    <div class="project-header">
+                        <h3>Just Honest</h3>
+                        <div class="project-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Retrofit</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Analytics</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Customer engagement and rewards platform integrating payment systems, push notifications, and analytics for enhanced user experience.
+                    </p>
+                    <div class="project-highlights">
+                        <h4>Technical Achievements:</h4>
+                        <ul>
+                            <li>Reduced crash rate by 8% using Firebase Crashlytics</li>
+                            <li>Integrated Facebook Analytics for user behavior tracking</li>
+                            <li>Implemented push notification system for user engagement</li>
+                            <li>Optimized critical modules for improved stability</li>
+                            <li>Led code reviews and mentored junior developers</li>
+                        </ul>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://github.com/arvindy10" class="project-link" target="_blank">View on GitHub →</a>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="android">
+                    <div class="project-header">
+                        <h3>LivNutriFit</h3>
+                        <div class="project-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">PayU SDK</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Fitness and nutrition tracking application for personalized health management with integrated payment solutions.
+                    </p>
+                    <div class="project-highlights">
+                        <h4>Technical Achievements:</h4>
+                        <ul>
+                            <li>Developed complete fitness tracking solution from scratch</li>
+                            <li>Integrated PayU SDK for seamless payment processing</li>
+                            <li>Implemented Firebase for backend services and analytics</li>
+                            <li>Achieved better Play Store ratings through user-centric design</li>
+                            <li>Managed complete lifecycle from development to Play Store release</li>
+                        </ul>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://github.com/arvindy10" class="project-link" target="_blank">View on GitHub →</a>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="android">
+                    <div class="project-header">
+                        <h3>Brown and Greens</h3>
+                        <div class="project-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">SQLite</span>
+                            <span class="tag">RazorPay</span>
+                            <span class="tag">Volley</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Grocery delivery e-commerce application with secure payment integration and efficient local data management.
+                    </p>
+                    <div class="project-highlights">
+                        <h4>Technical Achievements:</h4>
+                        <ul>
+                            <li>Integrated RazorPay for secure payment transactions</li>
+                            <li>Implemented SQLite for efficient local data storage</li>
+                            <li>Used Volley with ImageLoader for optimized image handling</li>
+                            <li>Delivered offline sync for seamless user experience</li>
+                            <li>Successfully published with improved Play Store ratings</li>
+                        </ul>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://github.com/arvindy10" class="project-link" target="_blank">View on GitHub →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-content">
+                <p class="contact-intro">I'm always interested in discussing new opportunities, architectural challenges, or innovative Android solutions. Feel free to reach out!</p>
+                <div class="contact-links">
+                    <a href="mailto:akyadav020190@gmail.com" class="contact-link">
+                        <span class="icon">✉</span>
+                        <span>akyadav020190@gmail.com</span>
+                    </a>
+                    <a href="tel:+919458074124" class="contact-link">
+                        <span class="icon">📱</span>
+                        <span>+91-9458074124</span>
+                    </a>
+                    <a href="https://github.com/arvindy10" class="contact-link" target="_blank">
+                        <span class="icon">⚡</span>
+                        <span>github.com/arvindy10</span>
+                    </a>
+                    <a href="https://linkedin.com/in/arvindy10/" class="contact-link" target="_blank">
+                        <span class="icon">🔗</span>
+                        <span>linkedin.com/in/arvindy10</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Arvind Kumar Yadav. Senior Android Developer | 10+ Years Experience</p>
+        </div>
+    </footer>
+
+    <script>
+// Theme Toggle
+const themeToggle = document.querySelector('.theme-toggle');
+const html = document.documentElement;
+
+// Check for saved theme preference or default to 'light'
+const currentTheme = localStorage.getItem('theme') || 'light';
+html.setAttribute('data-theme', currentTheme);
+
+themeToggle.addEventListener('click', () => {
+    const theme = html.getAttribute('data-theme');
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+});
+
+// Mobile Menu Toggle
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+mobileMenuToggle.addEventListener('click', () => {
+    mobileMenuToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const offset = 80;
+            const targetPosition = target.offsetTop - offset;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Tab functionality
+const tabButtons = document.querySelectorAll('.tab-btn');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const targetTab = button.getAttribute('data-tab');
+        
+        // Remove active class from all buttons and panels
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabPanels.forEach(panel => panel.classList.remove('active'));
+        
+        // Add active class to clicked button and corresponding panel
+        button.classList.add('active');
+        document.getElementById(targetTab).classList.add('active');
+    });
+});
+
+// Project filtering
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Filter projects with animation
+        projectCards.forEach(card => {
+            const categories = card.getAttribute('data-category').split(' ');
+            
+            if (filter === 'all' || categories.includes(filter)) {
+                card.style.display = 'flex';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, 10);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        });
+    });
+});
+
+// Navbar scroll effect
+let lastScroll = 0;
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 100) {
+        navbar.style.boxShadow = '0 2px 10px var(--shadow)';
+    } else {
+        navbar.style.boxShadow = 'none';
+    }
+    
+    lastScroll = currentScroll;
+});
+
+// Intersection Observer for fade-in animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe elements for animation
+document.querySelectorAll('.project-card, .arch-card, .skill-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+});
+
+// Dynamic year in footer
+const currentYear = new Date().getFullYear();
+const footerText = document.querySelector('.footer p');
+if (footerText) {
+    footerText.textContent = footerText.textContent.replace('2024', currentYear);
+}
+
+// Add keyboard navigation for tabs
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        const activeTab = document.querySelector('.tab-btn.active');
+        if (!activeTab) return;
+        
+        const tabs = Array.from(tabButtons);
+        const currentIndex = tabs.indexOf(activeTab);
+        let nextIndex;
+        
+        if (e.key === 'ArrowRight') {
+            nextIndex = (currentIndex + 1) % tabs.length;
+        } else {
+            nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+        }
+        
+        tabs[nextIndex].click();
+    }
+});
+
+// Enhanced project card interactions
+projectCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+    });
+});
+
+// Add loading state management for future API calls
+const addLoadingState = (element) => {
+    element.classList.add('loading');
+    element.style.pointerEvents = 'none';
+    element.style.opacity = '0.6';
+};
+
+const removeLoadingState = (element) => {
+    element.classList.remove('loading');
+    element.style.pointerEvents = '';
+    element.style.opacity = '';
+};
+
+// Initialize animations on page load
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});
+
+// Handle reduced motion preference
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+if (prefersReducedMotion.matches) {
+    document.querySelectorAll('*').forEach(el => {
+        el.style.transition = 'none';
+        el.style.animation = 'none';
+    });
+}
+
+console.log('%c Senior Mobile Developer Portfolio ', 'background: #6366f1; color: white; padding: 10px 20px; border-radius: 5px; font-size: 16px; font-weight: bold;');
+console.log('%c Built with passion for mobile excellence', 'color: #8b5cf6; font-size: 12px;');
+    </script>
 </body>
 </html>
