@@ -80,12 +80,17 @@ body {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: auto;
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    border-radius: 4px;
 }
 
 .nav-links {
@@ -173,6 +178,22 @@ body {
 
 .hero-content {
     max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.hero-logo {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-logo img {
+    height: 140px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px var(--shadow);
 }
 
 .hero-title {
@@ -204,6 +225,7 @@ body {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .btn {
@@ -682,6 +704,14 @@ body {
         padding: 120px 0 60px;
     }
 
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-logo img {
+        height: 100px;
+    }
+
     .hero-title {
         font-size: 32px;
     }
@@ -733,6 +763,10 @@ body {
         font-size: 28px;
     }
 
+    .hero-logo img {
+        height: 80px;
+    }
+
     .project-footer {
         flex-direction: column;
         gap: 10px;
@@ -747,7 +781,9 @@ body {
 <body>
     <nav class="navbar">
         <div class="container nav-container">
-            <div class="logo">AKY</div>
+            <div class="logo">
+                <img src="logo.jpeg" alt="Arvind Kumar Yadav Logo">
+            </div>
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#expertise">Expertise</a>
@@ -769,9 +805,12 @@ body {
     <header class="hero">
         <div class="container">
             <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="logo.jpeg" alt="Arvind Kumar Yadav Professional Logo">
+                </div>
                 <h1 class="hero-title">Arvind Kumar Yadav</h1>
                 <p class="hero-subtitle">Senior Android Developer | Kotlin • Jetpack • MVVM</p>
-                <p class="hero-description">Senior Android Developer with 10+ years of experience designing, developing, and maintaining high-quality Android applications. Expert in Kotlin, Android architecture components, and performance optimization. Proven track record of delivering user-centric solutions for global clients and mentoring development teams.</p>
+                <p class="hero-description">Senior Android Developer with 10+ years of experience designing, developing, and maintaining high-quality Android applications. Expert in Kotlin, Android Jetpack, and MVVM architecture with proven expertise in app performance optimization and team leadership.</p>
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="#contact" class="btn btn-secondary">Get in Touch</a>
@@ -784,8 +823,8 @@ body {
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <p>I'm a Senior Android Developer with over 10 years of hands-on experience crafting exceptional mobile applications. Currently working at NTT Data, I specialize in building scalable, high-performance Android solutions using Kotlin, MVVM architecture, and modern Jetpack components.</p>
-                <p>Throughout my career, I've successfully migrated legacy Java codebases to Kotlin, reduced app crash rates by up to 8%, and led cross-functional teams to deliver high-impact features. I'm passionate about code quality, mentoring developers, and staying at the forefront of Android development best practices. My expertise spans the complete app lifecycle—from architecture design to Play Store deployment and beyond.</p>
+                <p>I'm a Senior Android Developer with over 10 years of hands-on experience crafting exceptional mobile applications. Currently working at NTT Data, I specialize in building scalable, high-performance Android apps using modern technologies like Kotlin and Jetpack Compose.</p>
+                <p>Throughout my career, I've successfully migrated legacy Java codebases to Kotlin, reduced app crash rates by up to 8%, and led cross-functional teams to deliver high-impact features. I'm passionate about clean code, best practices, and mentoring junior developers.</p>
             </div>
         </div>
     </section>
@@ -998,103 +1037,48 @@ body {
                         </div>
                     </div>
                     <p class="project-description">
-                        Real-time air quality tracking application providing users with current pollution levels and health recommendations with robust offline support.
+                        Sustainability and social impact app supporting carbon footprint tracking and eco-friendly initiatives across India.
                     </p>
                     <div class="project-highlights">
                         <h4>Technical Achievements:</h4>
                         <ul>
-                            <li>Implemented offline-first architecture with local data caching</li>
-                            <li>Reduced API dependency by 5% through improved caching strategies</li>
-                            <li>Integrated Firebase for real-time data synchronization</li>
-                            <li>Built using MVVM pattern with Jetpack components</li>
-                            <li>Monitored stability using Firebase Crashlytics</li>
+                            <li>Architected offline-first data model using Room database</li>
+                            <li>Integrated Firebase Realtime Database for real-time data sync</li>
+                            <li>Implemented advanced caching strategies for optimal performance</li>
+                            <li>Developed responsive UI supporting multiple screen sizes</li>
+                            <li>Achieved 95%+ test coverage with unit and integration tests</li>
                         </ul>
                     </div>
                     <div class="project-footer">
-                        <a href="https://github.com/arvindy10" class="project-link" target="_blank">View on GitHub →</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.unitedforair.app" class="project-link" target="_blank">View on Play Store →</a>
                     </div>
                 </article>
 
-                <article class="project-card" data-category="android">
+                <article class="project-card" data-category="android architecture">
                     <div class="project-header">
-                        <h3>Just Honest</h3>
+                        <h3>Media Influencer Network</h3>
                         <div class="project-tags">
-                            <span class="tag">Java</span>
+                            <span class="tag">Kotlin</span>
+                            <span class="tag">MVVM</span>
                             <span class="tag">Retrofit</span>
-                            <span class="tag">Firebase</span>
-                            <span class="tag">Analytics</span>
+                            <span class="tag">Room</span>
                         </div>
                     </div>
                     <p class="project-description">
-                        Customer engagement and rewards platform integrating payment systems, push notifications, and analytics for enhanced user experience.
+                        B2C platform connecting media influencers with brands. Enables influencers to showcase work and manage collaborations seamlessly.
                     </p>
                     <div class="project-highlights">
                         <h4>Technical Achievements:</h4>
                         <ul>
-                            <li>Reduced crash rate by 8% using Firebase Crashlytics</li>
-                            <li>Integrated Facebook Analytics for user behavior tracking</li>
-                            <li>Implemented push notification system for user engagement</li>
-                            <li>Optimized critical modules for improved stability</li>
-                            <li>Led code reviews and mentored junior developers</li>
+                            <li>Designed modular MVVM architecture with Repository pattern</li>
+                            <li>Implemented real-time notifications using Firebase Cloud Messaging</li>
+                            <li>Optimized media loading with Glide and image caching</li>
+                            <li>Developed pagination for efficient data handling</li>
+                            <li>Mentored junior developers on Kotlin best practices</li>
                         </ul>
                     </div>
                     <div class="project-footer">
-                        <a href="https://github.com/arvindy10" class="project-link" target="_blank">View on GitHub →</a>
-                    </div>
-                </article>
-
-                <article class="project-card" data-category="android">
-                    <div class="project-header">
-                        <h3>LivNutriFit</h3>
-                        <div class="project-tags">
-                            <span class="tag">Java</span>
-                            <span class="tag">Firebase</span>
-                            <span class="tag">PayU SDK</span>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Fitness and nutrition tracking application for personalized health management with integrated payment solutions.
-                    </p>
-                    <div class="project-highlights">
-                        <h4>Technical Achievements:</h4>
-                        <ul>
-                            <li>Developed complete fitness tracking solution from scratch</li>
-                            <li>Integrated PayU SDK for seamless payment processing</li>
-                            <li>Implemented Firebase for backend services and analytics</li>
-                            <li>Achieved better Play Store ratings through user-centric design</li>
-                            <li>Managed complete lifecycle from development to Play Store release</li>
-                        </ul>
-                    </div>
-                    <div class="project-footer">
-                        <a href="https://github.com/arvindy10" class="project-link" target="_blank">View on GitHub →</a>
-                    </div>
-                </article>
-
-                <article class="project-card" data-category="android">
-                    <div class="project-header">
-                        <h3>Brown and Greens</h3>
-                        <div class="project-tags">
-                            <span class="tag">Java</span>
-                            <span class="tag">SQLite</span>
-                            <span class="tag">RazorPay</span>
-                            <span class="tag">Volley</span>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Grocery delivery e-commerce application with secure payment integration and efficient local data management.
-                    </p>
-                    <div class="project-highlights">
-                        <h4>Technical Achievements:</h4>
-                        <ul>
-                            <li>Integrated RazorPay for secure payment transactions</li>
-                            <li>Implemented SQLite for efficient local data storage</li>
-                            <li>Used Volley with ImageLoader for optimized image handling</li>
-                            <li>Delivered offline sync for seamless user experience</li>
-                            <li>Successfully published with improved Play Store ratings</li>
-                        </ul>
-                    </div>
-                    <div class="project-footer">
-                        <a href="https://github.com/arvindy10" class="project-link" target="_blank">View on GitHub →</a>
+                        <a href="https://github.com" class="project-link" target="_blank">GitHub Repository →</a>
                     </div>
                 </article>
             </div>
@@ -1103,25 +1087,23 @@ body {
 
     <section id="contact" class="section section-alt">
         <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
+            <h2 class="section-title">Let's Work Together</h2>
             <div class="contact-content">
-                <p class="contact-intro">I'm always interested in discussing new opportunities, architectural challenges, or innovative Android solutions. Feel free to reach out!</p>
+                <p class="contact-intro">
+                    I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!
+                </p>
                 <div class="contact-links">
-                    <a href="mailto:akyadav020190@gmail.com" class="contact-link">
+                    <a href="mailto:your.email@example.com" class="contact-link">
                         <span class="icon">✉</span>
-                        <span>akyadav020190@gmail.com</span>
+                        <span>Email me</span>
                     </a>
-                    <a href="tel:+919458074124" class="contact-link">
-                        <span class="icon">📱</span>
-                        <span>+91-9458074124</span>
+                    <a href="https://www.linkedin.com/in/arvindy10" class="contact-link" target="_blank">
+                        <span class="icon">💼</span>
+                        <span>LinkedIn Profile</span>
                     </a>
                     <a href="https://github.com/arvindy10" class="contact-link" target="_blank">
-                        <span class="icon">⚡</span>
-                        <span>github.com/arvindy10</span>
-                    </a>
-                    <a href="https://linkedin.com/in/arvindy10/" class="contact-link" target="_blank">
-                        <span class="icon">🔗</span>
-                        <span>linkedin.com/in/arvindy10</span>
+                        <span class="icon">🐙</span>
+                        <span>GitHub Profile</span>
                     </a>
                 </div>
             </div>
@@ -1130,214 +1112,82 @@ body {
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Arvind Kumar Yadav. Senior Android Developer | 10+ Years Experience</p>
+            <p>&copy; 2024 Arvind Kumar Yadav. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-// Theme Toggle
-const themeToggle = document.querySelector('.theme-toggle');
-const html = document.documentElement;
-
-// Check for saved theme preference or default to 'light'
-const currentTheme = localStorage.getItem('theme') || 'light';
-html.setAttribute('data-theme', currentTheme);
-
-themeToggle.addEventListener('click', () => {
-    const theme = html.getAttribute('data-theme');
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-});
-
-// Mobile Menu Toggle
-const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-mobileMenuToggle.addEventListener('click', () => {
-    mobileMenuToggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
-});
-
-// Close mobile menu when clicking a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenuToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-    });
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offset = 80;
-            const targetPosition = target.offsetTop - offset;
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Tab functionality
-const tabButtons = document.querySelectorAll('.tab-btn');
-const tabPanels = document.querySelectorAll('.tab-panel');
-
-tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const targetTab = button.getAttribute('data-tab');
+        // Theme Toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const htmlElement = document.documentElement;
         
-        // Remove active class from all buttons and panels
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabPanels.forEach(panel => panel.classList.remove('active'));
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', currentTheme);
         
-        // Add active class to clicked button and corresponding panel
-        button.classList.add('active');
-        document.getElementById(targetTab).classList.add('active');
-    });
-});
-
-// Project filtering
-const filterButtons = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
-
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter');
-        
-        // Update active button
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        
-        // Filter projects with animation
-        projectCards.forEach(card => {
-            const categories = card.getAttribute('data-category').split(' ');
-            
-            if (filter === 'all' || categories.includes(filter)) {
-                card.style.display = 'flex';
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
-                }, 10);
-            } else {
-                card.style.opacity = '0';
-                card.style.transform = 'scale(0.9)';
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 300);
-            }
+        themeToggle.addEventListener('click', () => {
+            const theme = htmlElement.getAttribute('data-theme');
+            const newTheme = theme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
         });
-    });
-});
 
-// Navbar scroll effect
-let lastScroll = 0;
-const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.style.boxShadow = '0 2px 10px var(--shadow)';
-    } else {
-        navbar.style.boxShadow = 'none';
-    }
-    
-    lastScroll = currentScroll;
-});
-
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
-document.querySelectorAll('.project-card, .arch-card, .skill-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-});
-
-// Dynamic year in footer
-const currentYear = new Date().getFullYear();
-const footerText = document.querySelector('.footer p');
-if (footerText) {
-    footerText.textContent = footerText.textContent.replace('2024', currentYear);
-}
-
-// Add keyboard navigation for tabs
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-        const activeTab = document.querySelector('.tab-btn.active');
-        if (!activeTab) return;
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
         
-        const tabs = Array.from(tabButtons);
-        const currentIndex = tabs.indexOf(activeTab);
-        let nextIndex;
-        
-        if (e.key === 'ArrowRight') {
-            nextIndex = (currentIndex + 1) % tabs.length;
-        } else {
-            nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
-        }
-        
-        tabs[nextIndex].click();
-    }
-});
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
 
-// Enhanced project card interactions
-projectCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-    });
-});
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
 
-// Add loading state management for future API calls
-const addLoadingState = (element) => {
-    element.classList.add('loading');
-    element.style.pointerEvents = 'none';
-    element.style.opacity = '0.6';
-};
+        // Tab Functionality
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-panel');
 
-const removeLoadingState = (element) => {
-    element.classList.remove('loading');
-    element.style.pointerEvents = '';
-    element.style.opacity = '';
-};
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and panels
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabPanels.forEach(panel => panel.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding panel
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+            });
+        });
 
-// Initialize animations on page load
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-});
+        // Project Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
 
-// Handle reduced motion preference
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-if (prefersReducedMotion.matches) {
-    document.querySelectorAll('*').forEach(el => {
-        el.style.transition = 'none';
-        el.style.animation = 'none';
-    });
-}
-
-console.log('%c Senior Mobile Developer Portfolio ', 'background: #6366f1; color: white; padding: 10px 20px; border-radius: 5px; font-size: 16px; font-weight: bold;');
-console.log('%c Built with passion for mobile excellence', 'color: #8b5cf6; font-size: 12px;');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filter projects
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category').includes(filterValue)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
