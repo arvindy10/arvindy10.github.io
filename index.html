@@ -177,6 +177,20 @@ body {
     margin: 0 auto;
 }
 
+.hero-logo {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-logo img {
+    height: 140px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
 .hero-title-wrapper {
     display: flex;
     align-items: center;
@@ -705,6 +719,10 @@ body {
         text-align: center;
     }
 
+    .hero-logo img {
+        height: 100px;
+    }
+
     .hero-title-wrapper {
         gap: 15px;
     }
@@ -773,6 +791,10 @@ body {
         height: 45px;
     }
 
+    .hero-logo img {
+        height: 80px;
+    }
+
     .project-footer {
         flex-direction: column;
         gap: 10px;
@@ -809,6 +831,9 @@ body {
     <header class="hero">
         <div class="container">
             <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="logo.jpeg" alt="Arvind Kumar Yadav Professional Logo">
+                </div>
                 <div class="hero-title-wrapper">
                     <img src="logo.jpeg" alt="Arvind Kumar Yadav Logo" class="hero-logo-inline">
                     <h1 class="hero-title">Arvind Kumar Yadav</h1>
